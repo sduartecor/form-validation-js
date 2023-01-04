@@ -1,29 +1,228 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
     <link rel="shortcut icon" href="./4geeks.ico" />
-  </head>
-  <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+</head>
+
+<body>
+    <!--Scripts-->
+    <script src="https://kit.fontawesome.com/56125acec2.js" crossorigin="anonymous"></script>
+
+    <!-- Estilo CSS-->
+    <style>
+        label {
+            font-weight: bold;
+        }
+    </style>
+
+
+    <!--Star Body-->
+
+    <!--Formulario-->
+    <div class="container-fluid">
+
+        <div class="container my-5">
+
+            <div class="card rounded" style="width: auto;">
+
+                <!--Card Header-->
+                <div class="card-header">
+                    <h3 class="">Payment form example</h2>
+                </div>
+
+                <!--Card Body-->
+                <div class="card-body">
+
+                    <form id="form" class="needs-validation" novalidate>
+
+                        <!--Primer Row-->
+
+                        <div class="form-group row">
+
+                            <!--CreditCard-->
+                            <div class="col-md-5 mb-1">
+                                <label for="cardnumber">Card #</label>
+                                <input type="text" class="form-control" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="cardnumber" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" minlength="19" required>
+                                <div id="invalidCredit" class="text-danger">
+
+                                </div>
+                            </div>
+                            <!--CVC-->
+                            <div class="col-md-3 mb-1">
+                                <label for="cvc">CVC #</label>
+                                <input type="text" class="form-control" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="cvc" maxlength="4" minlength="4" placeholder="0000" required>
+                                <div id="invalidCvc" class="text-danger">
+
+                                </div>
+                            </div>
+                            <!--Amount-->
+                            <div class="col-md-4 mb-1">
+                                <label for="amount">Amount</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="amount" placeholder="Amount" aria-describedby="inputGroupPrepend" required>
+
+                                </div>
+                                <div id="invalidAmount" class="text-danger">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Segundo Row-->
+                        <div class="form-group row">
+
+                            <!--First Name-->
+                            <div class="col-md-6 mb-1">
+                                <label for="firstname">First Name</label>
+                                <input type="text" class="form-control" id="firstname" minlength="5" maxlength="30" required>
+                                <div id="invalidFName" class="text-danger">
+
+                                </div>
+                            </div>
+                            <!--Second Name-->
+                            <div class="col-md-6 mb-1">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" class="form-control" id="lastname" minlength="5" maxlength="30" required>
+                                <div id="invalidLName" class="text-danger">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--Tercer Row-->
+                        <div class="form-group row">
+
+                            <!--City-->
+                            <div class="col-md-6 mb-3">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" minlength="5" maxlength="30" required>
+                                <div id="invalidCity" class="text-danger">
+
+                                </div>
+                            </div>
+
+                            <!--State-->
+                            <div class="col-md-3 mb-3">
+
+                                <label for="state">State</label>
+                                <select class="form-control" id="state" required>
+                                    <option value="">Pick a State</option>
+                                    <option value="Artigas">Artigas</option>
+                                    <option value="Canelones">Canelones</option>
+                                    <option value="Cerro Largo">Cerro Largo</option>
+                                    <option value="Colonia">Colonia</option>
+                                    <option value="Durazno">Durazno</option>
+                                </select>
+                                <div id="invalidState" class="text-danger">
+
+                                </div>
+
+
+
+                            </div>
+
+
+                            <!--Zip-->
+                            <div class="col-md-3 mb-3">
+                                <label for="zip">Zip</label>
+                                <input type="text" class="form-control" id="zip" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="5" minlength="5" required>
+                                <div id="invalidZip" class="text-danger">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Cuarto Row-->
+                        <div class="form-group row">
+
+                            <!--IconCards-->
+                            <div class="col-md-3 mb-3 d-flex flex-column">
+                                <div class="p-0">
+                                    <label for="card">We accept:</label>
+                                </div>
+
+
+                                <div class="p-1 mb-2 bg-dark text-white rounded">
+
+                                    <!--IconoMastercad-->
+                                    <div class="form-check form-check-inline mx-1">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mastercard" value="option1" required>
+                                        <label class="form-check-label" for="mastercard"> <i class="fa-brands fa-cc-mastercard" style="font-size: 22px"></i> </label>
+                                    </div>
+
+                                    <!--IconoVisa-->
+                                    <div class="form-check form-check-inline mx-1">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="visa" value="option2" required>
+                                        <label class="form-check-label" for="visa"> <i class="fa-brands fa-cc-visa" style="font-size: 22px"></i> </label>
+                                    </div>
+
+                                    <!--IconoDinners-->
+                                    <div class="form-check form-check-inline mx-1">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="dinners" value="option3" required>
+                                        <label class="form-check-label" for="dinners"> <i class="fa-brands fa-cc-diners-club" style="font-size: 22px"></i> </label>
+                                    </div>
+
+                                    <!--IconoAmex-->
+                                    <div class="form-check form-check-inline mx-1">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="amex" value="option4" required>
+                                        <label class="form-check-label" for="amex"> <i class="fa-brands fa-cc-amex" style="font-size: 22px"></i> </label>
+                                    </div>
+
+
+                                </div>
+
+                                <div id="invalidCard" class="text-danger">
+
+                                </div>
+
+
+
+
+                            </div>
+
+                            <!--Div Vacio-->
+                            <div class="col-md-3 mb-6">
+                            </div>
+
+                            <!--Message-->
+                            <div class="col-md-6 mb-6">
+                                <label for="message">Message: </label>
+                                <textarea class="form-control" id="message" row="4"></textarea>
+                                <p style="font-size: 12px">Add any notes here.</p>
+
+                            </div>
+
+                        </div>
+
+                </div>
+
+                <!--Card Footer-->
+                <div class="card-footer">
+
+                    <button class="btn btn-primary float-right" onclick="validarDatos();" type="submit">Send</button>
+                    <button class="btn btn-secondary float-right mx-2" onClick="window.location.reload();" type="Reset">Cancel</button>
+
+                </div>
+
+                </form>
+
+            </div>
+
+        </div>
     </div>
-  </body>
+
+    <!--Script JS-->
+    <script type="text/javascript" src="/src/app.js"></script>
+
+</body>
+
 </html>
